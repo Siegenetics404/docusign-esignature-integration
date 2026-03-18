@@ -15,7 +15,6 @@ export default function Dashboard() {
             const formData = new FormData();
             formData.append("file", file);
 
-            // Send the file to your backend
             const res = await fetch("/docusign/sign", {
                 method: "POST",
                 body: formData,
