@@ -24,4 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+use App\Http\Controllers\DocuSignController;
+
+Route::post('/docusign/sign', [DocuSignController::class, 'sign']);
+Route::get('/docusign/callback', [DocuSignController::class, 'callback']);
+
+require __DIR__ . '/auth.php';
+require __DIR__ . '/api.php';
